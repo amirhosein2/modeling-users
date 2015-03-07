@@ -1,3 +1,41 @@
 <% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
-<p>This will be a signup page for new users.</p>
+<h1>Introuction to regex</h1>
+<p>
+there is so many way to ckeck email addess. In this topic we introduce 3 of them , send validation link , use built in function , regex.
+to using built in functions we had to install validates_email_format_of gem by adding line "gem 'validates_email_format_of' " in Gemfile.
+after it we had to add validates :email, email_format: { message: "doesn't look like an email address" } to our model. this will validate email adress like example@yahoo.co.uk .
+</p>
+
+<p>
+	beside we can use validation with regex. regex are powerfull tools but they seem horrible. One men say "Some people, when confronted with a problem, think, “I know, I’ll use regular expressions.” Now they have two problems". For example you can use 
+</p>
+<p>
+"validates_format_of :email, :with => /^(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6})$/i"
+</p>
+<p>
+to validate email adress
+</p>
+
+<p>
+by the way we don't need this stuff !!! we can simply send validation email to email address user provide and then if user clicked on that link save user profile in database :) isn't it more fun
+</p>
+<p>
+No, I’m not joking. Just send your users an email. The activation email is a practice that’s been in use for years, but it’s often paired with complex validations that the email is formatted correctly. If you’re going to send an activation email to users, why bother using a gigantic regular expression?
+</p>
+<p>
+happy new year
+</p>
+<h1>save pasword problem</h1>
+<p>
+we want password that have 
+    1.Lower case characters
+    2.Upper case characters
+    3.Numbers
+    4.Punctuation
+    5.“Special” characters (e.g. @#$%^&*()_+|~-=`{}[]:";'<>/ etc)
+    6.Contain at least fifteen alphanumeric characters.
+</p>
+
+<p>I searched web site and see this <a href="http://stackoverflow.com/questions/22052473/best-flexible-rails-password-security-implementation">link</a>
+ it is usefull and I will add taht in my upcoming project
+</p>
